@@ -1,0 +1,61 @@
+version: '2'
+
+services:
+  workspace:
+    image: busybox:latest
+    volumes:
+      - ./:/var/www
+      - ./mariadb:/var/lib/mysql:rw
+      - ./services/nginx/logs:/var/log/nginx
+      - ./services/nginx/sites:/etc/nginx/conf.d
+  php-fpm:
+    build:
+      context: ./services/php
+      args:
+        - "XDEBUG_ON=${XDEBUG_ON}"
+        - "XDEBUG_REMOTE_HOST=${XDEBUG_REMOTE_HOST}"
+    ports:
+      - 9000
+    volumes_from:
+      - workspace
+    restart: always
+  composer:
+    build:
+      context: ./services/composer
+    volumes:
+      - ./:/app
+  nginx:
+    build:
+      context: ./services/nginx
+    volumes_from:
+      - workspace
+    ports:
+      - 8080:80
+    depends_on:
+      - php-fpm
+    restart: always
+  mariadb:
+    build:
+      context: ./services/mariadb
+    ports:
+      - 3306:3306
+    volumes_from:
+      - workspace
+    environment:
+      - "MYSQL_DATABASE=app"
+      - "MYSQL_USER=app"
+      - "MYSQL_PASSWORD=secret"
+      - "MYSQL_ROOT_PASSWORD=secret"
+  node:
+    build:
+      context: ./services/node
+    volumes_from:
+      - workspace
+
+volumes:
+  php-fpm:
+    driver: "local"
+  nginx:
+    driver: "local"
+  mariadb:
+    driver: "local"
