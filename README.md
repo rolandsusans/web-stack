@@ -125,5 +125,5 @@ To check that you are using v1.12 or higher, run:
 
 # Attributions
 
-- This project was greatly inspired by the [Docker web stack](https://github.com/jpcaparas/docker-web-stack).
+- This project was greatly inspired by the [Docker web stack](https://github.com/jpcaparas/docker-web-stack) and by [Laradock project](https://github.com/laradock/laradock)- 
 
