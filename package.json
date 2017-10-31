@@ -1,0 +1,10 @@
+{
+  "name": "docker-webapp",
+  "version": "0.0.1",
+  "main": "public/index.php",
+  "repository": "ggit@github.com:rolandsusans/web-stack.git",
+  "license": "MIT",
+  "dependencies": {
+    "whatwg-fetch": "^2.0.3"
+  }
+}
