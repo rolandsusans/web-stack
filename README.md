@@ -20,7 +20,7 @@ A `docker-compose`-powered stack to get your PHP project running in no time.
 # Requirements
 
 - `Docker` v17.09.0-ce or higher
-- `docker-compose` v1.8.0 or higher
+- `docker-compose` v1.12.0 or higher
 
 
 # How-to (simple)
