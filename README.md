@@ -58,7 +58,7 @@ To connect to the MariaDB service, run:
 
 ---
 
-To install composer dependencies, run:
+Manage composer dependencies, run:
 
         docker-compose run --rm composer <install|update|require...>
 
@@ -68,12 +68,12 @@ To install composer dependencies, run:
 
 ---
 
-To install npm packages, run:
+Manage npm packages with yarn, run:
 
         docker-compose run --rm yarn add [name-of-package]
 
 - `yarn` is faster than `npm` and contains a lockfile (`yarn.lock`), for deterministic dependency resolution.
-
+[Yarn documnetation](https://yarnpkg.com/en/docs/usage)
 
 # How-to (advanced)
 
@@ -82,7 +82,7 @@ To enable the Xdebug module:
 1. Copy the `.env.example` to an `.env` file and:
     1. Change the value of `XDEBUG_ON` to `true`
     1. Change the value of `XDEBUG_REMOTE_HOST` to your host machine's IP address.
-1.  Run `docker-compose up -d --build --remove-orphans` to re-build the service.
+2.  Run `docker-compose up -d --build --remove-orphans` to re-build the service.
 
 ---
 
