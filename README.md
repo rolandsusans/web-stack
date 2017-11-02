@@ -161,11 +161,11 @@ To check that you are using v1.12 or higher, run:
     
 4. PhpStorm configuration
     1. IDE settings:
-    ![Screen shot (note that port is 9000) ](https://imgur.com/a/RD5VU)
+    ![Screen shot (note that port is 9000) ](https://imgur.com/4OLlNAs)
     2. Open project on your local machine and you should be prompted:
-    ![Incomming connection from XDebug](https://imgur.com/a/m7kkg)
+    ![Incomming connection from XDebug](https://imgur.com/fB98WXW)
     3. XDebug in action (note that your web page will not load until you step over all brake points)
-    ![XDebug in action](https://imgur.com/a/oRDYO)
+    ![XDebug in action](https://imgur.com/GGpZEAX)
 
 # Attributions
 
