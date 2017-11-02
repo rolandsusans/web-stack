@@ -123,7 +123,50 @@ To check that you are using v1.12 or higher, run:
 - This stack was built on `Ubuntu 16.04.3 LTS 64-bit`.
 
 
+
+# Setting up PHPStorm with XDebug
+
+1. Find out your docker IP address
+
+    ```bash
+    ifconfig
+    
+    ```
+    
+    In my case it was:
+    
+    ```
+    docker0   Link encap:Ethernet  HWaddr **:**:**:**:**:**  
+              inet addr:172.17.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
+              inet6 addr: ****::**:****:****:****/** Scope:Link
+              UP BROADCAST MULTICAST  MTU:1500  Metric:1
+              RX packets:472 errors:0 dropped:0 overruns:0 frame:0
+              TX packets:576 errors:0 dropped:0 overruns:0 carrier:0
+              collisions:0 txqueuelen:0 
+              RX bytes:32312 (32.3 KB)  TX bytes:657698 (657.6 KB)
+    
+    ```
+2. Coppy .env.example to .env and modify IP:
+   
+    ```
+    XDEBUG_ON=true
+    XDEBUG_REMOTE_HOST=172.17.0.1
+    
+    ```
+    
+3. Start/restart web-stack project by running
+    ```
+        docker-compose up -d --build --remove-orphans    
+    ```
+    
+4. PhpStorm configuration
+    1. IDE settings:
+    ![Screen shot (note that port is 9000) ](https://imgur.com/a/RD5VU)
+    2. Open project on your local machine and you should be prompted:
+    ![Incomming connection from XDebug](https://imgur.com/a/m7kkg)
+    3. XDebug in action (note that your web page will not load until you step over all brake points)
+    ![XDebug in action](https://imgur.com/a/oRDYO)
+
 # Attributions
 
 - This project was greatly inspired by the [Docker web stack](https://github.com/jpcaparas/docker-web-stack) and by [Laradock project](https://github.com/laradock/laradock)- 
-
